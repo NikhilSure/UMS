@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
-
+       
     @Autowired
     private BookService bookService;
 
@@ -23,6 +23,12 @@ public class BookController {
     public Book addBook(@RequestBody Book book) {
         System.out.println(book.toString());
         return bookService.addBook(book);
+    }
+
+    @PostMapping("/insertBooks")
+    public void addBooks(@RequestBody Book[] book) {
+        System.out.println(book.toString());
+        bookService.saveListBooks(book);
     }
 
     @DeleteMapping("/{id}")
