@@ -17,7 +17,7 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
     List<UserProfile> findByUsernameNot(String username);
     List<UserProfile> findByUsernameIn(List<String> usernames);
     List<UserProfile> findByUsernameNotIn(List<String> usernames);
-    @Query("SELECT u.username FROM user_profile u")
+    @Query("SELECT u.username FROM UserProfile u")
     List<String> getListOfUsernames();
 
     //address

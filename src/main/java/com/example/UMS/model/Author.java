@@ -16,7 +16,7 @@ public class Author {
     private Long authorId;
 
     @Column(nullable = false, length = 255)
-    private String fullName;
+    private String fullname;
 
     @Lob
     private String bio;

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -32,6 +33,7 @@ public class GlobalResponseModifers implements ResponseBodyAdvice<Object>{
         responseBody.put("time", LocalDateTime.now());
         responseBody.put("status", HttpStatus.ACCEPTED);
         responseBody.put("data", body);
-        return new ResponseEntity<>(responseBody, HttpStatus.ACCEPTED);
+        response.setStatusCode(HttpStatus.OK);
+        return responseBody;
     }
 }
