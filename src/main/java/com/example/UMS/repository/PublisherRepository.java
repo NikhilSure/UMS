@@ -16,6 +16,6 @@ public interface PublisherRepository extends JpaRepository<Publisher, Long> {
     List<Publisher> findByNameNot(String name);
     List<Publisher> findByNameIn(List<String> names);
     List<Publisher> findByNameNotIn(List<String> names);
-    @Query("SELECT p.Name FROM Publisher p")
+    @Query("SELECT p.name FROM Publisher p")
     List<String> getListOfNames();
 }
