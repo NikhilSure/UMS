@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.UMS.dto.CategoryDTO;
 import com.example.UMS.model.Category;
 import com.example.UMS.repository.CategoryRepository;
 
@@ -12,6 +13,15 @@ import com.example.UMS.repository.CategoryRepository;
 public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
+
+    public CategoryDTO toDto(Category category) {
+        return category == null ?
+         null : CategoryDTO
+                    .builder()
+                    .id(category.getCategoryId())
+                    .name(category.getName())
+                    .build();
+    }
 
     public List<Category> getAllCategorys() {
         return categoryRepository.findAll();
