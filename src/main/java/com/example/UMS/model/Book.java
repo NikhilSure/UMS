@@ -29,7 +29,7 @@ public class Book {
     @Column(length = 20)
     private String isbn;
 
-    private LocalDate publishedDate;
+    private LocalDateTime publishedDate;
 
     private LocalDateTime createdAt;
 

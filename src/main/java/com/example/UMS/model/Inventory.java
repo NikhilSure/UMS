@@ -1,5 +1,7 @@
 package com.example.UMS.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,5 +24,17 @@ public class Inventory {
     private Integer stockQuantity;
 
     private java.time.LocalDateTime lastRestocked;
+
+    @PrePersist
+    private void beforeInsert() {
+        if (lastRestocked == null) {
+            lastRestocked = LocalDateTime.now();
+        }
+    }
+
+    @PreUpdate
+    private void beforeUpdate() {
+        lastRestocked = LocalDateTime.now();
+    }
 }
 
